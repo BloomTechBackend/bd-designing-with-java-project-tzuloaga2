@@ -7,15 +7,13 @@ public class PolyBag extends Packaging {
 
     private BigDecimal volume;
 
-    public BigDecimal getVolume() {
-        return volume;
-    }
-
-    public PolyBag(BigDecimal volume,Material material) {
+    public PolyBag(Material material, BigDecimal volume) {
         super(material);
         this.volume = volume;
     }
-
+    public BigDecimal getVolume() {
+        return volume;
+    }
 
     public BigDecimal getMass() {
        double mass = Math.ceil(Math.sqrt(volume.doubleValue()) * 0.6);
@@ -28,9 +26,15 @@ public class PolyBag extends Packaging {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
+        if (this == o){
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()){
+            return false;
+        }
+        if (!super.equals(o)) {
+            return false;
+        }
         PolyBag polyBag = (PolyBag) o;
         return getVolume().equals(polyBag.getVolume());
     }
