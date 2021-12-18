@@ -30,7 +30,7 @@ public class PackagingDAO {
      */
    public PackagingDAO(PackagingDatastore datastore) {
        List<FcPackagingOption> listOfPackages = datastore.getFcPackagingOptions();
-       for (FcPackagingOption list : listOfPackages) { // add a check here to see if key exists, if so then need to add option to add a separate one
+       for (FcPackagingOption list : listOfPackages) {
            Set<FcPackagingOption> fcSet = new HashSet<>();
            if (fcMap.containsKey(list.getFulfillmentCenter())) {
                fcSet = fcMap.get(list.getFulfillmentCenter());
