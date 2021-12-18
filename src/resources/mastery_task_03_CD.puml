@@ -1,0 +1,35 @@
+@startuml
+title Mastery Task 3
+
+enum Material {
+LAMINATED_PLASTIC
+CORRUGATE
+}
+
+class Box {
+- length: BigDecimal
+- width: BigDecimal
+- height: BigDecimal
++ getMass(): BigDecimal
++ canFitItem(Item): boolean
+}
+
+class PolyBag {
++ canFitItem(Item): boolean
++ getMass(): BigDecimal
+- volume: BigDecimal
+}
+
+class Packaging{
+Material: material
++getMass(): BigDecimal
++canFitItem(Item): boolean
+ }
+
+ Box -|> Packaging
+  PolyBag -|> Packaging
+ Packaging -> Material
+
+
+
+@enduml
