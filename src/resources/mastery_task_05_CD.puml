@@ -1,0 +1,32 @@
+./gradlew -q clean :test --tests 'com.amazon.ata.*
+@startuml
+'https://plantuml.com/sequence-diagram
+
+@startuml
+Title WeightedCostStrategy-MT5
+
+
+class CarbonCostStrategy {
++ CarbonCostStrategy
++ getCost
+}
+
+class MonetaryCostStrategy{
++ getCost : ShipmentCost(shipmentOption, cost)
+}
+
+class WeightedCostStrategy{
++ CostImplementation
+}
+
+interface CostStrategy{
++ getCost(ShipmentOption): ShipmentCost()
+}
+
+CarbonCostStrategy ..|>  CostStrategy
+MonetaryCostStrategy ..|>  CostStrategy
+WeightedCostStrategy ..|> CostStrategy
+CarbonCostStrategy ..|> WeightedCostStrategy
+MonetaryCostStrategy ..|> WeightedCostStrategy
+
+@enduml
