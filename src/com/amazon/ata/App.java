@@ -1,7 +1,6 @@
 package com.amazon.ata;
 
 import com.amazon.ata.cost.CostStrategy;
-import com.amazon.ata.cost.MonetaryCostStrategy;
 import com.amazon.ata.cost.WeightedCostStrategy;
 import com.amazon.ata.dao.PackagingDAO;
 import com.amazon.ata.datastore.PackagingDatastore;

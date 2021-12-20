@@ -60,7 +60,6 @@ public class ShipmentService {
                     .build();
         }
     }
-
     private ShipmentOption getLowestCostShipmentOption(List<ShipmentOption> results) {
         List<ShipmentCost> shipmentCosts = applyCostStrategy(results);
         Collections.sort(shipmentCosts);

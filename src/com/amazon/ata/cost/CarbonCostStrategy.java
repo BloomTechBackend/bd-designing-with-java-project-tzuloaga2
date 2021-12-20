@@ -13,22 +13,22 @@ package com.amazon.ata.cost;
  */
 public class CarbonCostStrategy implements CostStrategy {
 
-    private final Map<Material, BigDecimal> CarbonCostPerGram;
+    private final Map<Material, BigDecimal> carbonCostPerGram;
 
     /**
      * Initializes a CarbonCostStrategy.
      */
     public CarbonCostStrategy() {
-        CarbonCostPerGram = new HashMap<>();
-        CarbonCostPerGram.put(Material.CORRUGATE, BigDecimal.valueOf(.017));
-        CarbonCostPerGram.put(Material.LAMINATED_PLASTIC, BigDecimal.valueOf(.012));
+        carbonCostPerGram = new HashMap<>();
+        carbonCostPerGram.put(Material.CORRUGATE, BigDecimal.valueOf(.017));
+        carbonCostPerGram.put(Material.LAMINATED_PLASTIC, BigDecimal.valueOf(.012));
     }
 
 
     @Override
     public ShipmentCost getCost(ShipmentOption shipmentOption) {
         Packaging packaging = shipmentOption.getPackaging();
-        BigDecimal materialCost = this.CarbonCostPerGram.get(packaging.getMaterial());
+        BigDecimal materialCost = this.carbonCostPerGram.get(packaging.getMaterial());
         BigDecimal cost = packaging.getMass().multiply(materialCost);
         return new ShipmentCost(shipmentOption, cost);
     }
